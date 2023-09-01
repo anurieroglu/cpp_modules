@@ -42,7 +42,7 @@ class PhoneBook
 		Contact contact[8];
 		int		add_cnt;
 	public:
-		PhoneBook() {add_cnt = 0};
+		PhoneBook() {add_cnt = 0; };
 		Contact& get_contact(int index) {return (contact[index]); }
 
 		void	search_contact();

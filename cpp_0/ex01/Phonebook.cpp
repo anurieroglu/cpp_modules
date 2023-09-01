@@ -59,6 +59,32 @@ void	display_detail(PhoneBook *ph, int i)
 	cout << "Phone Number: " << shortener(ph->get_contact(i).get_phone_number()) <<endl;
 }
 
+void	PhoneBook::search_contact(void)
+{
+	string idx;
+	int i = -1;
+
+	if (add_cnt == 0)
+	{
+		cout << "No saved contacts!" << endl;
+		return ;
+	}
+	while (++i < add_cnt)
+		display_contact(this, i);
+	i = -1;
+	cout << "Please search contact index number:" << endl;
+	getline(cin, idx);
+	while (++i < add_cnt)
+	{
+		if (std::atoi(idx.c_str()) == contact[i].get_index())
+		{
+			display_detail(this, i);
+			return ;
+		}
+	}
+	cout << "The contact not found!" << endl;
+}
+
 void	PhoneBook::add_contact(void)
 {
 	static int i = 0;
@@ -73,4 +99,36 @@ void	PhoneBook::add_contact(void)
 	getline(cin, str);
 	if (str == "\0")
 		goto name;
+	contact[i].set_first_name(str);
+	cout << i + 1 << '-' << " Enter a Last Name: " << endl;
+	last:
+	getline(cin, str);
+	if(str == "\0")
+		goto last;
+	contact[i].set_last_name(str);
+	cout << i + 1 << '-' << "Enter a Nick Name:" << endl;
+	nick:
+	getline(cin, str);
+	if (str == "\0")
+		goto nick;
+	contact[i].set_nick_name(str);
+	cout << i + 1 << '-' << " Enter a Phone Number:" << endl;
+	istnum:
+	getline(cin, str);
+	while (!isNumber(str))
+	{
+		cout << "Please type a number!\nEnter a Phone Number: ";
+		getline(cin, str);
+	}
+	if (str == "\0")
+		goto istnum;
+	contact[i].set_phone_number(str);
+	cout << i + 1 << '-' << " Enter a Darkest Secret:" << endl;
+	dark:
+	getline(cin, str);
+	if (str == "\0")
+		goto dark;
+	contact[i].set_darkest_secret(str);
+	contact[i].set_index(i + 1);
+	i++;
 }
