@@ -1,13 +1,12 @@
 SRCS = main.cpp
-OBJS = $(SRCS:%.cpp=%.o)
-NAME = zombie
+NAME = sed
 C++ = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(SRCS)
 		$(C++) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean:

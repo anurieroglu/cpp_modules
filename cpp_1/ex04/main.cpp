@@ -6,11 +6,12 @@ int main(int ac, char **av)
     if (ac == 4)
     {
         std::string line;
-        std::string file(av[1]); 
+        std::string filename = av[1];
+        std::string file = filename + ".replace";
         std::ofstream yourfile;
         std::ifstream myfile;
 
-        yourfile.open(file + ".replace");
+        yourfile.open(file.c_str());
         myfile.open(av[1]);
         if (!myfile.good() || !yourfile.good())
             return 1;
