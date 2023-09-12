@@ -3,6 +3,5 @@
 int main()
 {
     Harl person;
-
     person.compline("DEBUG");
 }

@@ -7,7 +7,7 @@ int main()
     int i = 0;
     while (i < 6)
     {
-        first[i].announce();&
+        first[i].announce();
         i++;
     }
     delete []first;
