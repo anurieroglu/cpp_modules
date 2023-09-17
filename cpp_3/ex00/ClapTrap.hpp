@@ -2,26 +2,28 @@
 #define CLAPTRAP_HPP
 
 #include <iostream>
+#include <string>
 
-class ClapTrap
+using	std::string;
+using	std::cout;
+using	std::endl;
+
+class	ClapTrap
 {
-    private:
-        std::string name;
-        int hitPoint;
-        int maxHP;
-        int energyPoint;
-        int attackDamage;
-    public:
-        ClapTrap();
-        ClapTrap(std::string name);
-        ~ClapTrap();
-        ClapTrap(const ClapTrap &copy);
-        ClapTrap &operator=(const ClapTrap &claptrap);
-        void attack(const std::string& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
-        std::string getName(void);
-        int getAttackDamage(void);
+	private:
+		string	name;
+		int		Hit;
+		int		Energy;
+		int		damage;
+	public:
+		ClapTrap();
+		ClapTrap(const string nick);
+		ClapTrap(const ClapTrap& oth);
+		~ClapTrap();
+		ClapTrap&	operator=(const ClapTrap& oth);
+		void	attack(const string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 };
 
 #endif

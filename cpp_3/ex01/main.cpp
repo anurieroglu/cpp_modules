@@ -1,15 +1,15 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(void)
+int	 main(void)
 {
-	ClapTrap *clapTrapHorde = new ClapTrap[3];
-	ClapTrap target("Memelimestan");
-	for (int i = 0; i < 3; i++)
-	{
-		clapTrapHorde[i].attack(target.getName());
-		target.takeDamage(clapTrapHorde[i].getAttackDamage());
-	}
-	delete [] clapTrapHorde;
-	target.beRepaired(3);
-	return (0);
+	ScavTrap a("Ceren");
+	ScavTrap b("Kevser");
+	ScavTrap c(b);
+
+	a.attack("Zombie");
+	b.takeDamage(2);
+	c.beRepaired(10);
+	a = b;
+	a.attack("Zombie");
+	b.guardGate();
 }

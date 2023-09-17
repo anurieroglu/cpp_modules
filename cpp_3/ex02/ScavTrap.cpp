@@ -18,9 +18,9 @@ ScavTrap::ScavTrap(const string nick)
 	cout << "Nick name constructer Worked" << endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& oth) : ClapTrap(oth)
+ScavTrap::ScavTrap(const ScavTrap& oth) :ClapTrap(oth)
 {
-	cout << "Copy ScavTrap Worked" << endl;
+	cout << "ScavTrap Worked" << endl;
 	*this = oth;
 }
 
