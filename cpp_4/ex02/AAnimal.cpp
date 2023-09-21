@@ -2,7 +2,7 @@
 
 AAnimal::~AAnimal()
 {
-	cout << "AAnimal destructor called" << endl;
+	cout << "AAnimal Destroyed" << endl;
 }
 
 void AAnimal::makeSound() const

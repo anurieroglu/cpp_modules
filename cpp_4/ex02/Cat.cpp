@@ -16,6 +16,7 @@ Cat::Cat(const Cat& oth) : AAnimal(oth)
 Cat::~Cat()
 {
     cout << "Cat Destroyed" << endl;
+    delete beg;
 }
 
 Cat &Cat::operator=(const Cat& oth)

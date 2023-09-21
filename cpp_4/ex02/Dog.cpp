@@ -16,6 +16,7 @@ Dog::Dog(const Dog& oth) : AAnimal(oth)
 Dog::~Dog()
 {
     cout << "Dog Destroyed" << endl;
+    delete beg;
 }
 
 Dog &Dog::operator=(const Dog& oth)

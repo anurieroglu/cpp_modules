@@ -4,15 +4,27 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main()
+int	main(void)
 {
-	WrongCat *catObject = new WrongCat;
-	WrongCat	*dogObject = new WrongCat;
-	WrongCat	*duckObject = new WrongCat;
-
-	WrongAnimal *animalobject[] = {catObject, dogObject, duckObject};
-
-	for (int i = 0; i < 3; i++)
-		animalobject[i]->makeSound();
+	AAnimal *animals[4];
+	for (int i = 0; i < 4; i++)
+	{
+		if (i % 2 == 0)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	
+	AAnimal *copy = new Cat((Cat&)animals[0]);
+	for (int i = 0; i < 4; i++)
+	{
+		animals[i]->makeSound();
+	}
+	std::cout << "animals[0] address: " << animals[0] << std::endl;
+	std::cout << "copy address: " << copy << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		delete animals[i];
+	}
+	return (0);
 }
-
